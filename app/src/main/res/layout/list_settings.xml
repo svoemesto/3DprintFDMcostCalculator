@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/lst_bt_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_baseline_delete_forever_24"/>
+
+            <ImageButton
+                android:id="@+id/lst_bt_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_baseline_edit_24"/>
+
+            <TextView
+                android:id="@+id/lst_tv_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lst_bt_edit"
+                android:text="Name:"/>
+            <TextView
+                android:id="@+id/lst_tv_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lst_tv_name_label"
+                android:layout_toStartOf="@id/lst_bt_delete"
+                android:layout_marginStart="10dp"
+                android:text="Setting name"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/lst_bt_edit"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lst_tv_electricity_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Electricity cost:"/>
+
+                    <TextView
+                        android:id="@+id/lst_tv_electricity_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lst_tv_electricity_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lst_tv_printer_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Printer cost:"/>
+
+                    <TextView
+                        android:id="@+id/lst_tv_printer_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lst_tv_printer_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lst_tv_printer_power_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Printer power:"/>
+
+                    <TextView
+                        android:id="@+id/lst_tv_printer_power_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lst_tv_printer_power_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="0"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lst_tv_depreciation_years_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Depreciation years:"/>
+
+                    <TextView
+                        android:id="@+id/lst_tv_depreciation_years_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lst_tv_depreciation_years_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="0"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lst_tv_final_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Final cost (to 1 gram):"/>
+
+                    <TextView
+                        android:id="@+id/lst_tv_final_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lst_tv_final_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lst_tv_cost_hour_electricity_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Cost 1 hour work (electricity):"/>
+
+                    <TextView
+                        android:id="@+id/lst_tv_cost_hour_electricity_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lst_tv_cost_hour_electricity_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lst_tv_cost_hour_deprecation_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Cost 1 hour work (deprecation):"/>
+
+                    <TextView
+                        android:id="@+id/lst_tv_cost_hour_deprecation_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lst_tv_cost_hour_deprecation_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+                
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

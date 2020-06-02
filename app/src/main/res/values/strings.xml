@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name" translatable="false">3D print FDM cost Calculator</string>
+    <string name="ma_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/1978502016</string>
+    <string name="lpa_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/3284323758</string>
+    <string name="pa_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/3263948934</string>
+    <string name="lpl_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/8271026749</string>
+    <string name="pl_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/4046014733</string>
+    <string name="lpr_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/5261720025</string>
+    <string name="pr_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/7696311679</string>
+    <string name="lfl_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/1276381165</string>
+    <string name="fl_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/1511065328</string>
+    <string name="lst_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/2827128377</string>
+    <string name="st_ad_banner_id" translatable="false">ca-app-pub-2870168293382158/7887883363</string>
+
+    <string name="program_folder" translatable="false">3DprintCostCalc</string>
+    <string name="file_list_plastic" translatable="false">Plastic</string>
+    <string name="file_list_filament" translatable="false">Filament</string>
+    <string name="file_list_settings" translatable="false">Setting</string>
+    <string name="file_list_parts" translatable="false">Parts</string>
+    <string name="file_list_products" translatable="false">Products</string>
+    <string name="loading">Loading…</string>
+    <string name="version">version</string>
+</resources>

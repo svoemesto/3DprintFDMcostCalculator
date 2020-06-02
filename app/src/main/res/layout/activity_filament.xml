@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".FilamentActivity">
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fl_ad_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/fl_ad_banner_id"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/fl_ad_banner"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal|center_vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Name:"/>
+
+                <EditText
+                    android:id="@+id/fl_et_name_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_name_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/fl_ib_get_plastic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_open_in_browser_24"
+                    android:onClick="getPlastic"
+                    />
+
+                <TextView
+                    android:id="@+id/fl_tv_plastic_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Plastic:"/>
+
+                <TextView
+                    android:id="@+id/fl_tv_plastic_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_plastic_label"
+                    android:layout_toStartOf="@id/fl_ib_get_plastic"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Color:"/>
+
+                <EditText
+                    android:id="@+id/fl_et_color_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_color_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_diameter_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Diameter:"/>
+
+                <EditText
+                    android:id="@+id/fl_et_diameter_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_diameter_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_spool_weight_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Spool weight:"/>
+
+                <EditText
+                    android:id="@+id/fl_et_spool_weight_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_spool_weight_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_spool_cost_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Spool cost:"/>
+
+                <EditText
+                    android:id="@+id/fl_et_spool_cost_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_spool_cost_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_spool_length_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Spool length (m):"/>
+
+                <TextView
+                    android:id="@+id/fl_et_spool_length_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_spool_length_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    android:text="Spool length"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_spool_weight_one_meter_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Spool weight 1 meter (g):"/>
+
+                <TextView
+                    android:id="@+id/fl_et_spool_weight_one_meter_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_spool_weight_one_meter_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    android:text="Spool weight 1 meter"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_spool_cost_one_kg_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Cost 1 kg:"/>
+
+                <TextView
+                    android:id="@+id/fl_et_spool_cost_one_kg_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_spool_cost_one_kg_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    android:text="Cost 1 kg"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fl_tv_spool_cost_one_meter_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Cost 1 meter:"/>
+
+                <TextView
+                    android:id="@+id/fl_et_spool_cost_one_meter_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/fl_tv_spool_cost_one_meter_label"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    android:text="Cost 1 meter"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

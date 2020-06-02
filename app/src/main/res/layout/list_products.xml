@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/lpr_bt_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_baseline_delete_forever_24"/>
+
+            <ImageButton
+                android:id="@+id/lpr_bt_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_baseline_edit_24"/>
+
+            <TextView
+                android:id="@+id/lpr_tv_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lpr_bt_edit"
+                android:text="Name:"/>
+            <TextView
+                android:id="@+id/lpr_tv_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lpr_tv_name_label"
+                android:layout_toStartOf="@id/lpr_bt_delete"
+                android:layout_marginStart="10dp"
+                android:text="Product name"/>
+
+            <TextView
+                android:id="@+id/lpr_tv_count_parts_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lpr_bt_edit"
+                android:layout_below="@id/lpr_tv_name_label"
+                android:text="Parts count:"/>
+
+            <TextView
+                android:id="@+id/lpr_tv_count_parts_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lpr_tv_count_parts_label"
+                android:layout_below="@id/lpr_tv_name_value"
+                android:layout_toStartOf="@id/lpr_bt_delete"
+                android:layout_marginStart="10dp"
+                android:text="Count parts"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/lpr_bt_edit"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lpr_tv_weight_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Weight:"/>
+
+                    <TextView
+                        android:id="@+id/lpr_tv_weight_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lpr_tv_weight_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lpr_tv_filament_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Filament cost:"/>
+
+                    <TextView
+                        android:id="@+id/lpr_tv_filament_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lpr_tv_filament_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lpr_tv_electric_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Electricity cost:"/>
+
+                    <TextView
+                        android:id="@+id/lpr_tv_electric_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lpr_tv_electric_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lpr_tv_depreciation_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Depreciation cost:"/>
+
+                    <TextView
+                        android:id="@+id/lpr_tv_depreciation_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lpr_tv_depreciation_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lpr_tv_net_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Net cost:"/>
+
+                    <TextView
+                        android:id="@+id/lpr_tv_net_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lpr_tv_net_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lpr_tv_total_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Total cost:"/>
+
+                    <TextView
+                        android:id="@+id/lpr_tv_total_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lpr_tv_total_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lpr_tv_profit_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Profit:"/>
+
+                    <TextView
+                        android:id="@+id/lpr_tv_profit_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lpr_tv_profit_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

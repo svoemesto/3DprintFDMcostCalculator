@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "723068743200",
+    "firebase_url": "https://d-printer-fdm-cost-calculator.firebaseio.com",
+    "project_id": "d-printer-fdm-cost-calculator",
+    "storage_bucket": "d-printer-fdm-cost-calculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723068743200:android:4ccc6aa1f1d4ac57e0d645",
+        "android_client_info": {
+          "package_name": "com.svoemestodev.fdmcostcalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723068743200-9tkuuid9sk2tchbnas35ecftod5gf5kj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT-PwHrH7wkV_NACRXyFV6xhe5vwJfpX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723068743200-9tkuuid9sk2tchbnas35ecftod5gf5kj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/lp_bt_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_baseline_delete_forever_24"/>
+
+            <ImageButton
+                android:id="@+id/lp_bt_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_baseline_edit_24"/>
+
+            <TextView
+                android:id="@+id/lp_tv_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lp_bt_edit"
+                android:text="Name:"/>
+            <TextView
+                android:id="@+id/lp_tv_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/lp_tv_name_label"
+                android:layout_toStartOf="@id/lp_bt_delete"
+                android:layout_marginStart="10dp"
+                android:text="Part name"/>
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/lp_bt_edit"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_filament_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Filament:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_filament_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_filament_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="Filament name"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_settings_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Settings:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_settings_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_settings_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="Settings name"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_time_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Time:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_time_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_time_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00h00m"/>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_length_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Length:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_length_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_length_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="000000mm"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_weight_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Weight:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_weight_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_weight_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_filament_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Filament cost:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_filament_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_filament_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_electric_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Electricity cost:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_electric_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_electric_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_depreciation_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Depreciation cost:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_depreciation_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_depreciation_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_net_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Net cost:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_net_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_net_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_total_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Total cost:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_total_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_total_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lp_tv_profit_cost_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="Profit:"/>
+
+                    <TextView
+                        android:id="@+id/lp_tv_profit_cost_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/lp_tv_profit_cost_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:text="00.00"/>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

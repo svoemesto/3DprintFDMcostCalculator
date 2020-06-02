@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".MainActivity">
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ma_ad_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/ma_ad_banner_id"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ma_ad_banner"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal|center_vertical">
+
+            <ImageView
+                android:id="@+id/ma_iv_logo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_3dprintfdmcostcalculator"/>
+
+            <Button
+                android:id="@+id/ma_bt_plastic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openPlastic"
+                android:text="plastic"/>
+
+            <Button
+                android:id="@+id/ma_bt_filament"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openFilament"
+                android:text="filament"/>
+
+            <Button
+                android:id="@+id/ma_bt_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openSettings"
+                android:text="settings"/>
+
+            <Button
+                android:id="@+id/ma_bt_parts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openParts"
+                android:text="parts"/>
+
+            <Button
+                android:id="@+id/ma_bt_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openProducts"
+                android:text="products"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

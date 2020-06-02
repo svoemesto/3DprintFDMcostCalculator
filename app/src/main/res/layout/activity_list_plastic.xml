@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".ListPlasticActivity">
+
+    <Button
+        android:id="@+id/lpl_bt_add_new_plastic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add new plastic"
+        android:layout_alignParentBottom="true"
+        android:onClick="addNewPlastic"
+        />
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/lpl_ad_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@id/lpl_bt_add_new_plastic"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/lpl_ad_banner_id"
+        />
+    <ListView
+        android:id="@+id/lpl_lv_plastics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/lpl_ad_banner"/>
+
+</RelativeLayout>

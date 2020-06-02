@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".ListSettingsActivity">
+
+    <Button
+        android:id="@+id/lst_bt_add_new_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add new setting"
+        android:layout_alignParentBottom="true"
+        android:onClick="addNewSetting"
+        />
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/lst_ad_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@id/lst_bt_add_new_setting"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/lst_ad_banner_id"
+        />
+    <ListView
+        android:id="@+id/lst_lv_settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/lst_ad_banner"/>
+
+</RelativeLayout>
