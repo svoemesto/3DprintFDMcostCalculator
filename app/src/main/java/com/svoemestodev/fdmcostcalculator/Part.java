@@ -100,7 +100,7 @@ public class Part implements Serializable {
         List<Part> listNew = new ArrayList<>();
         boolean isFind = false;
         for (Part part : list) {
-            if (part.getUuid().toString().equals(this.getUuid().toString())) {
+            if (part.getUuid().equals(this.getUuid())) {
                 isFind = true;
                 listNew.add(this);
             } else {
@@ -115,7 +115,7 @@ public class Part implements Serializable {
         List<Part> list = loadList();
         List<Part> listNew = new ArrayList<>();
         for (Part part : list) {
-            if (!part.getUuid().toString().equals(this.getUuid().toString())) {
+            if (!part.getUuid().equals(this.getUuid())) {
                 listNew.add(part);
             }
         }

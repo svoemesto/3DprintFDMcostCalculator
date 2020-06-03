@@ -102,7 +102,7 @@ public class ListPartsActivity extends AppCompatActivity {
     public void addNewPart(View view) {
 
         Part part = new Part();
-        part.setName("Part #" + (parts.size()+1));
+        part.setName(getString(R.string.part) + " #" + (parts.size()+1));
         PartActivity.part = part;
         Intent intent = new Intent(this, PartActivity.class);
         startActivityForResult(intent, REQUEST_CODE_PART_ACTIVITY);

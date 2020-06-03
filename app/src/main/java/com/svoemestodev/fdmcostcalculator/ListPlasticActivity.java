@@ -98,7 +98,7 @@ public class ListPlasticActivity extends AppCompatActivity {
     public void addNewPlastic(View view) {
 
         Plastic plastic = new Plastic();
-        plastic.setName("Plastic #" + (plastics.size()+1));
+        plastic.setName(getString(R.string.plastic) + " #" + (plastics.size()+1));
         PlasticActivity.plastic = plastic;
         Intent intent = new Intent(this, PlasticActivity.class);
         startActivityForResult(intent, REQUEST_CODE_PLASTIC_ACTIVITY);

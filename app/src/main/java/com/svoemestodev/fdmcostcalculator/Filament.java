@@ -88,7 +88,7 @@ public class Filament implements Serializable {
         List<Filament> listNew = new ArrayList<>();
         boolean isFind = false;
         for (Filament filament : list) {
-            if (filament.getUuid().toString().equals(this.getUuid().toString())) {
+            if (filament.getUuid().equals(this.getUuid())) {
                 isFind = true;
                 listNew.add(this);
             } else {
@@ -103,7 +103,7 @@ public class Filament implements Serializable {
         List<Filament> list = loadList();
         List<Filament> listNew = new ArrayList<>();
         for (Filament filament : list) {
-            if (!filament.getUuid().toString().equals(this.getUuid().toString())) {
+            if (!filament.getUuid().equals(this.getUuid())) {
                 listNew.add(filament);
             }
         }

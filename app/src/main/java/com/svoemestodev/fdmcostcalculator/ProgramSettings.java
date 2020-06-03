@@ -65,7 +65,7 @@ public class ProgramSettings implements Serializable {
         List<ProgramSettings> listNew = new ArrayList<>();
         boolean isFind = false;
         for (ProgramSettings programSettings : list) {
-            if (programSettings.getUuid().toString().equals(this.getUuid().toString())) {
+            if (programSettings.getUuid().equals(this.getUuid())) {
                 isFind = true;
                 listNew.add(this);
             } else {
@@ -80,7 +80,7 @@ public class ProgramSettings implements Serializable {
         List<ProgramSettings> list = loadList();
         List<ProgramSettings> listNew = new ArrayList<>();
         for (ProgramSettings programSettings : list) {
-            if (!programSettings.getUuid().toString().equals(this.getUuid().toString())) {
+            if (!programSettings.getUuid().equals(this.getUuid())) {
                 listNew.add(programSettings);
             }
         }

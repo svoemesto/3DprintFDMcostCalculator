@@ -98,7 +98,7 @@ public class ListProductsActivity extends AppCompatActivity {
     public void addNewProduct(View view) {
 
         Product product = new Product();
-        product.setName("Product #" + (products.size()+1));
+        product.setName(getString(R.string.product) + " #" + (products.size()+1));
         ProductActivity.product = product;
         Intent intent = new Intent(this, ProductActivity.class);
         startActivityForResult(intent, REQUEST_CODE_PRODUCT_ACTIVITY);

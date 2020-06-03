@@ -98,7 +98,7 @@ public class ListSettingsActivity extends AppCompatActivity {
     public void addNewSetting(View view) {
 
         ProgramSettings setting = new ProgramSettings();
-        setting.setName("Setting #" + (settings.size()+1));
+        setting.setName(getString(R.string.setting) + " #" + (settings.size()+1));
         SettingsActivity.setting = setting;
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivityForResult(intent, REQUEST_CODE_SETTING_ACTIVITY);

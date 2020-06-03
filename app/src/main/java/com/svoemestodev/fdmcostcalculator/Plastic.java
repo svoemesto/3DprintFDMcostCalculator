@@ -63,7 +63,7 @@ public class Plastic implements Serializable {
         List<Plastic> listNew = new ArrayList<>();
         boolean isFind = false;
         for (Plastic plastic : list) {
-            if (plastic.getUuid().toString().equals(this.getUuid().toString())) {
+            if (plastic.getUuid().equals(this.getUuid())) {
                 isFind = true;
                 listNew.add(this);
             } else {
@@ -78,7 +78,7 @@ public class Plastic implements Serializable {
         List<Plastic> list = loadList();
         List<Plastic> listNew = new ArrayList<>();
         for (Plastic plastic : list) {
-            if (!plastic.getUuid().toString().equals(this.getUuid().toString())) {
+            if (!plastic.getUuid().equals(this.getUuid())) {
                 listNew.add(plastic);
             }
         }

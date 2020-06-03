@@ -100,7 +100,7 @@ public class ListFilamentActivity extends AppCompatActivity {
     public void addNewFilament(View view) {
 
         Filament filament = new Filament();
-        filament.setName("Filament #" + (filaments.size()+1));
+        filament.setName(getString(R.string.filament) + " #" + (filaments.size()+1));
         FilamentActivity.filament = filament;
         Intent intent = new Intent(this, FilamentActivity.class);
         startActivityForResult(intent, REQUEST_CODE_FILAMENT_ACTIVITY);

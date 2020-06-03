@@ -118,7 +118,7 @@ public class Product implements Serializable {
         List<Product> listNew = new ArrayList<>();
         boolean isFind = false;
         for (Product product : list) {
-            if (product.getUuid().toString().equals(this.getUuid().toString())) {
+            if (product.getUuid().equals(this.getUuid())) {
                 isFind = true;
                 listNew.add(this);
             } else {
@@ -133,7 +133,7 @@ public class Product implements Serializable {
         List<Product> list = loadList();
         List<Product> listNew = new ArrayList<>();
         for (Product product : list) {
-            if (!product.getUuid().toString().equals(this.getUuid().toString())) {
+            if (!product.getUuid().equals(this.getUuid())) {
                 listNew.add(product);
             }
         }
