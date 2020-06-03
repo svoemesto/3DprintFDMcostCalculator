@@ -29,64 +29,85 @@
                 android:layout_alignParentStart="true"
                 android:src="@drawable/ic_baseline_edit_24"/>
 
-            <TextView
-                android:id="@+id/lfl_tv_name_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/lfl_bt_edit"
-                android:text="Name:"/>
+
             <TextView
                 android:id="@+id/lfl_tv_name_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/lfl_tv_name_label"
-                android:layout_toStartOf="@id/lfl_bt_delete"
-                android:layout_marginStart="10dp"
-                android:text="Filament name"/>
-
-            <TextView
-                android:id="@+id/lfl_tv_plastic_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/lfl_bt_edit"
-                android:layout_below="@id/lfl_tv_name_label"
-                android:text="Plastic:"/>
-
-            <TextView
-                android:id="@+id/lfl_tv_plastic_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/lfl_tv_plastic_label"
-                android:layout_below="@id/lfl_tv_name_value"
                 android:layout_toStartOf="@id/lfl_bt_delete"
-                android:layout_marginStart="10dp"
-                android:text="Plastic name"/>
-
-            <TextView
-                android:id="@+id/lfl_tv_color_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/lfl_bt_edit"
-                android:layout_below="@id/lfl_tv_plastic_label"
-                android:text="Color:"/>
-
-            <TextView
-                android:id="@+id/lfl_tv_color_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/lfl_tv_color_label"
-                android:layout_below="@id/lfl_tv_plastic_value"
-                android:layout_toStartOf="@id/lfl_bt_delete"
-                android:layout_marginStart="10dp"
-                android:text="Color name"/>
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="18sp"
+                android:layout_marginStart="10dp" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_below="@id/lfl_tv_color_label"
+                android:layout_below="@id/lfl_bt_edit"
                 >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/lfl_tv_plastic_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/plastic_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_plastic_label"
+                        android:layout_alignBottom="@+id/lfl_tv_plastic_label"
+                        android:layout_toStartOf="@+id/lfl_tv_plastic_value"
+                        android:background="#c0c0c0"/>
+
+                    <TextView
+                        android:id="@+id/lfl_tv_plastic_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="end"
+                        android:textColor="@android:color/black"
+                        android:layout_marginStart="10dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/lfl_tv_color_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/color_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_color_label"
+                        android:layout_alignBottom="@+id/lfl_tv_color_label"
+                        android:layout_toStartOf="@+id/lfl_tv_color_value"
+                        android:background="#c0c0c0"/>
+
+                    <TextView
+                        android:id="@+id/lfl_tv_color_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="end"
+                        android:textColor="@android:color/black"
+                        android:layout_marginStart="10dp" />
+
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -97,17 +118,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="Diameter:"/>
+                        android:text="@string/diameter_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_diameter_label"
+                        android:layout_alignBottom="@+id/lfl_tv_diameter_label"
+                        android:layout_toStartOf="@+id/lfl_tv_diameter_value"
+                        android:background="#c0c0c0"/>
 
                     <TextView
                         android:id="@+id/lfl_tv_diameter_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lfl_tv_diameter_label"
+                        android:textColor="@android:color/black"
                         android:layout_alignParentEnd="true"
-                        android:gravity="right"
-                        android:layout_marginStart="10dp"
-                        android:text="0.00"/>
+                        android:gravity="end"
+                        android:fontFamily="@font/jet_brains_mono_regular"
+                        android:layout_marginStart="10dp" />
 
                 </RelativeLayout>
 
@@ -120,17 +149,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="Spool Weight:"/>
+                        android:text="@string/spool_weight_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_spool_weight_label"
+                        android:layout_alignBottom="@+id/lfl_tv_spool_weight_label"
+                        android:layout_toStartOf="@+id/lfl_tv_spool_weight_value"
+                        android:background="#c0c0c0"/>
 
                     <TextView
                         android:id="@+id/lfl_tv_spool_weight_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lfl_tv_spool_weight_label"
+                        android:textColor="@android:color/black"
                         android:layout_alignParentEnd="true"
-                        android:gravity="right"
-                        android:layout_marginStart="10dp"
-                        android:text="00.00"/>
+                        android:gravity="end"
+                        android:fontFamily="@font/jet_brains_mono_regular"
+                        android:layout_marginStart="10dp" />
 
                 </RelativeLayout>
 
@@ -143,17 +180,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="Spool cost:"/>
+                        android:text="@string/spool_cost_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_spool_cost_label"
+                        android:layout_alignBottom="@+id/lfl_tv_spool_cost_label"
+                        android:layout_toStartOf="@+id/lfl_tv_spool_cost_value"
+                        android:background="#c0c0c0"/>
 
                     <TextView
                         android:id="@+id/lfl_tv_spool_cost_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lfl_tv_spool_cost_label"
+                        android:textColor="@android:color/black"
                         android:layout_alignParentEnd="true"
-                        android:gravity="right"
-                        android:layout_marginStart="10dp"
-                        android:text="00.00"/>
+                        android:gravity="end"
+                        android:fontFamily="@font/jet_brains_mono_regular"
+                        android:layout_marginStart="10dp" />
 
                 </RelativeLayout>
 
@@ -167,18 +212,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="Spool length (m):"/>
+                        android:text="@string/spool_length_m_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_spool_length_label"
+                        android:layout_alignBottom="@+id/lfl_tv_spool_length_label"
+                        android:layout_toStartOf="@+id/lfl_et_spool_length_value"
+                        android:background="#c0c0c0"/>
 
                     <TextView
                         android:id="@+id/lfl_et_spool_length_value"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lfl_tv_spool_length_label"
+                        android:textColor="@android:color/black"
                         android:layout_alignParentEnd="true"
-                        android:gravity="right"
-                        android:layout_marginStart="10dp"
-                        android:text="Spool length"
-                        />
+                        android:gravity="end"
+                        android:fontFamily="@font/jet_brains_mono_regular"
+                        android:layout_marginStart="10dp" />
 
                 </RelativeLayout>
 
@@ -191,17 +243,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="Spool weight 1 meter (g):"/>
+                        android:text="@string/spool_weight_1_meter_g_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_spool_weight_one_meter_label"
+                        android:layout_alignBottom="@+id/lfl_tv_spool_weight_one_meter_label"
+                        android:layout_toStartOf="@+id/lfl_et_spool_weight_one_meter_value"
+                        android:background="#c0c0c0"/>
 
                     <TextView
                         android:id="@+id/lfl_et_spool_weight_one_meter_value"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lfl_tv_spool_weight_one_meter_label"
+                        android:textColor="@android:color/black"
                         android:layout_alignParentEnd="true"
-                        android:gravity="right"
+                        android:gravity="end"
+                        android:fontFamily="@font/jet_brains_mono_regular"
                         android:layout_marginStart="10dp"
-                        android:text="Spool weight 1 meter"
                         />
 
                 </RelativeLayout>
@@ -216,17 +276,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="Cost 1 kg:"/>
+                        android:text="@string/cost_1_kg_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_spool_cost_one_kg_label"
+                        android:layout_alignBottom="@+id/lfl_tv_spool_cost_one_kg_label"
+                        android:layout_toStartOf="@+id/lfl_et_spool_cost_one_kg_value"
+                        android:background="#c0c0c0"/>
 
                     <TextView
                         android:id="@+id/lfl_et_spool_cost_one_kg_value"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lfl_tv_spool_cost_one_kg_label"
+                        android:textColor="@android:color/black"
                         android:layout_alignParentEnd="true"
-                        android:gravity="right"
+                        android:gravity="end"
+                        android:fontFamily="@font/jet_brains_mono_regular"
                         android:layout_marginStart="10dp"
-                        android:text="Cost 1 kg"
                         />
 
                 </RelativeLayout>
@@ -240,17 +308,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:text="Cost 1 meter:"/>
+                        android:text="@string/cost_1_meter_colon"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_toEndOf="@+id/lfl_tv_spool_cost_one_meter_label"
+                        android:layout_alignBottom="@+id/lfl_tv_spool_cost_one_meter_label"
+                        android:layout_toStartOf="@+id/lfl_et_spool_cost_one_meter_value"
+                        android:background="#c0c0c0"/>
 
                     <TextView
                         android:id="@+id/lfl_et_spool_cost_one_meter_value"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/lfl_tv_spool_cost_one_meter_label"
+                        android:textColor="@android:color/black"
                         android:layout_alignParentEnd="true"
-                        android:gravity="right"
+                        android:gravity="end"
+                        android:fontFamily="@font/jet_brains_mono_regular"
                         android:layout_marginStart="10dp"
-                        android:text="Cost 1 meter"
+                        android:layout_marginBottom="10dp"
                         />
 
                 </RelativeLayout>

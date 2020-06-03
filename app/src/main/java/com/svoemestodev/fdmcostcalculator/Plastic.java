@@ -57,16 +57,6 @@ public class Plastic implements Serializable {
         return list;
     }
 
-    public static Plastic getItemByName(String name) {
-        Plastic result = null;
-        for (Plastic plastic: loadList()) {
-            if (plastic.getName().equals(name)) {
-                result = plastic;
-                break;
-            }
-        }
-        return result;
-    }
 
     public void save() {
         List<Plastic> list = loadList();

@@ -134,14 +134,14 @@ public class ListProductsActivity extends AppCompatActivity {
             String productName = product.getName() == null ? "N/A" : product.getName();
 
             lpr_tv_name_value.setText(productName);
-            lpr_tv_count_parts_value.setText(String.valueOf(product.getPartsCount()));
-            lpr_tv_weight_value.setText(String.valueOf(product.getWeight()));
-            lpr_tv_electric_cost_value.setText(String.valueOf(product.getElectricityCost()));
-            lpr_tv_depreciation_cost_value.setText(String.valueOf(product.getDepreciationCost()));
-            lpr_tv_filament_cost_value.setText(String.valueOf(product.getFilamentCost()));
-            lpr_tv_net_cost_value.setText(String.valueOf(product.getNetCost()));
-            lpr_tv_total_cost_value.setText(String.valueOf(product.getTotalCost()));
-            lpr_tv_profit_cost_value.setText(String.valueOf(product.getProfitCost()));
+            lpr_tv_count_parts_value.setText(Utils.convertIntToStringFormatter(product.getPartsCount()));
+            lpr_tv_weight_value.setText(Utils.convertFloatToStringFormatter2digit(product.getWeight()));
+            lpr_tv_electric_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getElectricityCost()));
+            lpr_tv_depreciation_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getDepreciationCost()));
+            lpr_tv_filament_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getFilamentCost()));
+            lpr_tv_net_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getNetCost()));
+            lpr_tv_total_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getTotalCost()));
+            lpr_tv_profit_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getProfitCost()));
 
             lpr_bt_delete.setOnClickListener(new View.OnClickListener() {
                 @Override

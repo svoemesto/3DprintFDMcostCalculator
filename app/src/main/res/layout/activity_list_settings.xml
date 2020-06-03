@@ -12,7 +12,7 @@
         android:id="@+id/lst_bt_add_new_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add new setting"
+        android:text="@string/add_new_setting"
         android:layout_alignParentBottom="true"
         android:onClick="addNewSetting"
         />

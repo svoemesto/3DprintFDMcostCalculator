@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,21 +23,21 @@ public class SettingsActivity extends AppCompatActivity {
 
     AdView st_ad_banner;
     TextView st_tv_name_label;
-    EditText st_et_name_value;
+    TextView st_tv_name_value;
     TextView st_tv_electricity_cost_label;
-    EditText st_et_electricity_cost_value;
+    TextView st_tv_electricity_cost_value;
     TextView st_tv_printer_cost_label;
-    EditText st_et_printer_cost_value;
+    TextView st_tv_printer_cost_value;
     TextView st_tv_printer_power_label;
-    EditText st_et_printer_power_value;
+    TextView st_tv_printer_power_value;
     TextView st_tv_depreciation_years_label;
-    EditText st_et_depreciation_years_value;
+    TextView st_tv_depreciation_years_value;
     TextView st_tv_final_cost_label;
-    EditText st_et_final_cost_value;
+    TextView st_tv_final_cost_value;
     TextView st_tv_cost_hour_electricity_label;
     TextView st_tv_cost_hour_electricity_value;
-    TextView st_tv_cost_hour_deprecation_label;
-    TextView st_tv_cost_hour_deprecation_value;
+    TextView st_tv_cost_hour_depreciation_label;
+    TextView st_tv_cost_hour_depreciation_value;
     public static ProgramSettings setting;
 
     @Override
@@ -65,14 +69,14 @@ public class SettingsActivity extends AppCompatActivity {
 
         String settingName = setting.getName() == null ? "N/A" : setting.getName();
 
-        st_et_name_value.setText(settingName);
-        st_et_electricity_cost_value.setText(String.valueOf(setting.getElectricityCost()));
-        st_et_printer_cost_value.setText(String.valueOf(setting.getPrinterCost()));
-        st_et_printer_power_value.setText(String.valueOf(setting.getPrinterPower()));
-        st_et_depreciation_years_value.setText(String.valueOf(setting.getDepreciationYears()));
-        st_et_final_cost_value.setText(String.valueOf(setting.getFinalCostToGram()));
-        st_tv_cost_hour_electricity_value.setText(String.valueOf(setting.getCostOneHourElectricity()));
-        st_tv_cost_hour_deprecation_value.setText(String.valueOf(setting.getCostOneHourDepreciation()));
+        st_tv_name_value.setText(settingName);
+        st_tv_electricity_cost_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getElectricityCost()));
+        st_tv_printer_cost_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getPrinterCost()));
+        st_tv_printer_power_value.setText(Utils.convertIntToStringFormatter(setting.getPrinterPower()));
+        st_tv_depreciation_years_value.setText(Utils.convertIntToStringFormatter(setting.getDepreciationYears()));
+        st_tv_final_cost_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getFinalCostToGram()));
+        st_tv_cost_hour_electricity_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getCostOneHourElectricity()));
+        st_tv_cost_hour_depreciation_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getCostOneHourDepreciation()));
 
     }
 
@@ -80,21 +84,21 @@ public class SettingsActivity extends AppCompatActivity {
 
         st_ad_banner = findViewById(R.id.st_ad_banner);
         st_tv_name_label = findViewById(R.id.st_tv_name_label);
-        st_et_name_value = findViewById(R.id.st_et_name_value);
+        st_tv_name_value = findViewById(R.id.st_tv_name_value);
         st_tv_electricity_cost_label = findViewById(R.id.st_tv_electricity_cost_label);
-        st_et_electricity_cost_value = findViewById(R.id.st_et_electricity_cost_value);
+        st_tv_electricity_cost_value = findViewById(R.id.st_tv_electricity_cost_value);
         st_tv_printer_cost_label = findViewById(R.id.st_tv_printer_cost_label);
-        st_et_printer_cost_value = findViewById(R.id.st_et_printer_cost_value);
+        st_tv_printer_cost_value = findViewById(R.id.st_tv_printer_cost_value);
         st_tv_printer_power_label = findViewById(R.id.st_tv_printer_power_label);
-        st_et_printer_power_value = findViewById(R.id.st_et_printer_power_value);
+        st_tv_printer_power_value = findViewById(R.id.st_tv_printer_power_value);
         st_tv_depreciation_years_label = findViewById(R.id.st_tv_depreciation_years_label);
-        st_et_depreciation_years_value = findViewById(R.id.st_et_depreciation_years_value);
+        st_tv_depreciation_years_value = findViewById(R.id.st_tv_depreciation_years_value);
         st_tv_final_cost_label = findViewById(R.id.st_tv_final_cost_label);
-        st_et_final_cost_value = findViewById(R.id.st_et_final_cost_value);
+        st_tv_final_cost_value = findViewById(R.id.st_tv_final_cost_value);
         st_tv_cost_hour_electricity_label = findViewById(R.id.st_tv_cost_hour_electricity_label);
         st_tv_cost_hour_electricity_value = findViewById(R.id.st_tv_cost_hour_electricity_value);
-        st_tv_cost_hour_deprecation_label = findViewById(R.id.st_tv_cost_hour_deprecation_label);
-        st_tv_cost_hour_deprecation_value = findViewById(R.id.st_tv_cost_hour_deprecation_value);
+        st_tv_cost_hour_depreciation_label = findViewById(R.id.st_tv_cost_hour_depreciation_label);
+        st_tv_cost_hour_depreciation_value = findViewById(R.id.st_tv_cost_hour_depreciation_value);
     }
 
     @Override
@@ -110,22 +114,188 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        setValues();
         setting.save();
         super.onBackPressed();
 
     }
 
-    private void setValues() {
 
-        setting.setName(st_et_name_value.getText().toString());
-        setting.setElectricityCost(Float.parseFloat(st_et_electricity_cost_value.getText().toString()));
-        setting.setPrinterCost(Float.parseFloat(st_et_printer_cost_value.getText().toString()));
-        setting.setPrinterPower(Integer.parseInt(st_et_printer_power_value.getText().toString()));
-        setting.setDepreciationYears(Integer.parseInt(st_et_depreciation_years_value.getText().toString()));
-        setting.setFinalCostToGram(Float.parseFloat(st_et_final_cost_value.getText().toString()));
+    public void setName(View view) {
 
-        loadDataToViews();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+        builder.setTitle(R.string.name);
+        String defaultValue = setting.getName();
+        final EditText input = new EditText(SettingsActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                setting.setName(newValue);
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+    
+    public void setPrinterCost(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+        builder.setTitle(R.string.printer_cost);
+        String defaultValue = String.valueOf(setting.getPrinterCost());
+        final EditText input = new EditText(SettingsActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                setting.setPrinterCost(Float.parseFloat(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    public void setPrinterPower(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+        builder.setTitle(R.string.printer_power);
+        String defaultValue = String.valueOf(setting.getPrinterPower());
+        final EditText input = new EditText(SettingsActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                setting.setPrinterPower(Integer.parseInt(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    public void setDepreciationYears(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+        builder.setTitle(R.string.depreciation_years);
+        String defaultValue = String.valueOf(setting.getDepreciationYears());
+        final EditText input = new EditText(SettingsActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                setting.setDepreciationYears(Integer.parseInt(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    public void setFinalCost(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+        builder.setTitle(R.string.final_cost_to_1_gram);
+        String defaultValue = String.valueOf(setting.getFinalCostToGram());
+        final EditText input = new EditText(SettingsActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                setting.setFinalCostToGram(Float.parseFloat(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+    
+    public void setElectricityCost(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+        builder.setTitle(R.string.electricity_cost);
+        String defaultValue = String.valueOf(setting.getElectricityCost());
+        final EditText input = new EditText(SettingsActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                setting.setElectricityCost(Float.parseFloat(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
 
     }
 

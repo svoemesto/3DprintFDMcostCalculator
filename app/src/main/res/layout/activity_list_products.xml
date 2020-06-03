@@ -12,7 +12,7 @@
         android:id="@+id/lpr_bt_add_new_product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add new product"
+        android:text="@string/add_new_product"
         android:layout_alignParentBottom="true"
         android:onClick="addNewProduct"
         />

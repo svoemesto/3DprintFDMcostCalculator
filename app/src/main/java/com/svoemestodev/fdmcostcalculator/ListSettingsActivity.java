@@ -26,6 +26,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ListSettingsActivity extends AppCompatActivity {
 
@@ -132,13 +133,13 @@ public class ListSettingsActivity extends AppCompatActivity {
             String settingName = setting.getName() == null ? "N/A" : setting.getName();
 
             lst_tv_name_value.setText(settingName);
-            lst_tv_electricity_cost_value.setText(String.valueOf(setting.getElectricityCost()));
-            lst_tv_printer_cost_value.setText(String.valueOf(setting.getPrinterCost()));
-            lst_tv_printer_power_value.setText(String.valueOf(setting.getPrinterPower()));
-            lst_tv_depreciation_years_value.setText(String.valueOf(setting.getDepreciationYears()));
-            lst_tv_final_cost_value.setText(String.valueOf(setting.getFinalCostToGram()));
-            lst_tv_cost_hour_electricity_value.setText(String.valueOf(setting.getCostOneHourElectricity()));
-            lst_tv_cost_hour_deprecation_value.setText(String.valueOf(setting.getCostOneHourDepreciation()));
+            lst_tv_electricity_cost_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getElectricityCost()));
+            lst_tv_printer_cost_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getPrinterCost()));
+            lst_tv_printer_power_value.setText(Utils.convertIntToStringFormatter(setting.getPrinterPower()));
+            lst_tv_depreciation_years_value.setText(Utils.convertIntToStringFormatter(setting.getDepreciationYears()));
+            lst_tv_final_cost_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getFinalCostToGram()));
+            lst_tv_cost_hour_electricity_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getCostOneHourElectricity()));
+            lst_tv_cost_hour_deprecation_value.setText(Utils.convertFloatToStringFormatter2digit(setting.getCostOneHourDepreciation()));
 
             lst_bt_delete.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -29,6 +29,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class ListPartsActivity extends AppCompatActivity {
@@ -145,14 +146,15 @@ public class ListPartsActivity extends AppCompatActivity {
             lp_tv_filament_value.setText(filamentName);
             lp_tv_settings_value.setText(settingName);
             lp_tv_time_value.setText(part.getTimeString());
-            lp_tv_length_value.setText(String.valueOf(part.getFilamentLength()));
-            lp_tv_weight_value.setText(String.valueOf(part.getWeight()));
-            lp_tv_electric_cost_value.setText(String.valueOf(part.getElectricityCost()));
-            lp_tv_depreciation_cost_value.setText(String.valueOf(part.getDepreciationCost()));
-            lp_tv_filament_cost_value.setText(String.valueOf(part.getFilamentCost()));
-            lp_tv_net_cost_value.setText(String.valueOf(part.getNetCost()));
-            lp_tv_total_cost_value.setText(String.valueOf(part.getTotalCost()));
-            lp_tv_profit_cost_value.setText(String.valueOf(part.getProfitCost()));
+
+            lp_tv_length_value.setText(Utils.convertIntToStringFormatter(part.getFilamentLength()));
+            lp_tv_weight_value.setText(Utils.convertFloatToStringFormatter2digit(part.getWeight()));
+            lp_tv_electric_cost_value.setText(Utils.convertFloatToStringFormatter2digit(part.getElectricityCost()));
+            lp_tv_depreciation_cost_value.setText(Utils.convertFloatToStringFormatter2digit(part.getDepreciationCost()));
+            lp_tv_filament_cost_value.setText(Utils.convertFloatToStringFormatter2digit(part.getFilamentCost()));
+            lp_tv_net_cost_value.setText(Utils.convertFloatToStringFormatter2digit(part.getNetCost()));
+            lp_tv_total_cost_value.setText(Utils.convertFloatToStringFormatter2digit(part.getTotalCost()));
+            lp_tv_profit_cost_value.setText(Utils.convertFloatToStringFormatter2digit(part.getProfitCost()));
 
             lp_bt_delete.setOnClickListener(new View.OnClickListener() {
                 @Override

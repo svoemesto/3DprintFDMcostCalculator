@@ -59,16 +59,6 @@ public class ProgramSettings implements Serializable {
         return list;
     }
 
-    public static ProgramSettings getItemByName(String name) {
-        ProgramSettings result = null;
-        for (ProgramSettings programSettings: loadList()) {
-            if (programSettings.getName().equals(name)) {
-                result = programSettings;
-                break;
-            }
-        }
-        return result;
-    }
 
     public void save() {
         List<ProgramSettings> list = loadList();

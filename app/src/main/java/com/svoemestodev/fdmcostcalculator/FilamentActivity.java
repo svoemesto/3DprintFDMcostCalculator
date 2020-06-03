@@ -1,14 +1,20 @@
 package com.svoemestodev.fdmcostcalculator;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -19,31 +25,32 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.svoemestodev.fdmcostcalculator.adapters.ListPlasticAdapter;
 
 public class FilamentActivity extends AppCompatActivity {
 
     AdView fl_ad_banner;
     TextView fl_tv_name_label;
-    EditText fl_et_name_value;
+    TextView fl_tv_name_value;
     ImageButton fl_ib_get_plastic;
     TextView fl_tv_plastic_label;
     TextView fl_tv_plastic_value;
     TextView fl_tv_color_label;
-    EditText fl_et_color_value;
+    TextView fl_tv_color_value;
     TextView fl_tv_diameter_label;
-    EditText fl_et_diameter_value;
+    TextView fl_tv_diameter_value;
     TextView fl_tv_spool_weight_label;
-    EditText fl_et_spool_weight_value;
+    TextView fl_tv_spool_weight_value;
     TextView fl_tv_spool_cost_label;
-    EditText fl_et_spool_cost_value;
+    TextView fl_tv_spool_cost_value;
     TextView fl_tv_spool_length_label;
-    TextView fl_et_spool_length_value;
+    TextView fl_tv_spool_length_value;
     TextView fl_tv_spool_weight_one_meter_label;
-    TextView fl_et_spool_weight_one_meter_value;
+    TextView fl_tv_spool_weight_one_meter_value;
     TextView fl_tv_spool_cost_one_kg_label;
-    TextView fl_et_spool_cost_one_kg_value;
+    TextView fl_tv_spool_cost_one_kg_value;
     TextView fl_tv_spool_cost_one_meter_label;
-    TextView fl_et_spool_cost_one_meter_value;
+    TextView fl_tv_spool_cost_one_meter_value;
 
     public static Filament filament;
 
@@ -77,16 +84,16 @@ public class FilamentActivity extends AppCompatActivity {
         String plasticName = filament.getPlastic() == null ? "N/A" : filament.getPlastic().getName();
         String colorName = filament.getColor() == null ? "N/A" : filament.getColor();
 
-        fl_et_name_value.setText(filamentName);
+        fl_tv_name_value.setText(filamentName);
         fl_tv_plastic_value.setText(plasticName);
-        fl_et_color_value.setText(colorName);
-        fl_et_diameter_value.setText(String.valueOf(filament.getDiameter()));
-        fl_et_spool_weight_value.setText(String.valueOf(filament.getSpoolWeight()));
-        fl_et_spool_cost_value.setText(String.valueOf(filament.getSpoolCost()));
-        fl_et_spool_length_value.setText(String.valueOf(filament.getSpoolLength()));
-        fl_et_spool_weight_one_meter_value.setText(String.valueOf(filament.getWeightOneMeter()));
-        fl_et_spool_cost_one_kg_value.setText(String.valueOf(filament.getCostOneKilogram()));
-        fl_et_spool_cost_one_meter_value.setText(String.valueOf(filament.getCostOneMeter()));
+        fl_tv_color_value.setText(colorName);
+        fl_tv_diameter_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getDiameter()));
+        fl_tv_spool_weight_value.setText(Utils.convertFloatToStringFormatter3digit(filament.getSpoolWeight()));
+        fl_tv_spool_cost_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getSpoolCost()));
+        fl_tv_spool_length_value.setText(Utils.convertFloatToStringFormatter3digit(filament.getSpoolLength()));
+        fl_tv_spool_weight_one_meter_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getWeightOneMeter()));
+        fl_tv_spool_cost_one_kg_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getCostOneKilogram()));
+        fl_tv_spool_cost_one_meter_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getCostOneMeter()));
 
     }
 
@@ -94,26 +101,26 @@ public class FilamentActivity extends AppCompatActivity {
 
         fl_ad_banner = findViewById(R.id.fl_ad_banner);
         fl_tv_name_label = findViewById(R.id.fl_tv_name_label);
-        fl_et_name_value = findViewById(R.id.fl_et_name_value);
+        fl_tv_name_value = findViewById(R.id.fl_tv_name_value);
         fl_ib_get_plastic = findViewById(R.id.fl_ib_get_plastic);
         fl_tv_plastic_label = findViewById(R.id.fl_tv_plastic_label);
         fl_tv_plastic_value = findViewById(R.id.fl_tv_plastic_value);
         fl_tv_color_label = findViewById(R.id.fl_tv_color_label);
-        fl_et_color_value = findViewById(R.id.fl_et_color_value);
+        fl_tv_color_value = findViewById(R.id.fl_tv_color_value);
         fl_tv_diameter_label = findViewById(R.id.fl_tv_diameter_label);
-        fl_et_diameter_value = findViewById(R.id.fl_et_diameter_value);
+        fl_tv_diameter_value = findViewById(R.id.fl_tv_diameter_value);
         fl_tv_spool_weight_label = findViewById(R.id.fl_tv_spool_weight_label);
-        fl_et_spool_weight_value = findViewById(R.id.fl_et_spool_weight_value);
+        fl_tv_spool_weight_value = findViewById(R.id.fl_tv_spool_weight_value);
         fl_tv_spool_cost_label = findViewById(R.id.fl_tv_spool_cost_label);
-        fl_et_spool_cost_value = findViewById(R.id.fl_et_spool_cost_value);
+        fl_tv_spool_cost_value = findViewById(R.id.fl_tv_spool_cost_value);
         fl_tv_spool_length_label = findViewById(R.id.fl_tv_spool_length_label);
-        fl_et_spool_length_value = findViewById(R.id.fl_et_spool_length_value);
+        fl_tv_spool_length_value = findViewById(R.id.fl_tv_spool_length_value);
         fl_tv_spool_weight_one_meter_label = findViewById(R.id.fl_tv_spool_weight_one_meter_label);
-        fl_et_spool_weight_one_meter_value = findViewById(R.id.fl_et_spool_weight_one_meter_value);
+        fl_tv_spool_weight_one_meter_value = findViewById(R.id.fl_tv_spool_weight_one_meter_value);
         fl_tv_spool_cost_one_kg_label = findViewById(R.id.fl_tv_spool_cost_one_kg_label);
-        fl_et_spool_cost_one_kg_value = findViewById(R.id.fl_et_spool_cost_one_kg_value);
+        fl_tv_spool_cost_one_kg_value = findViewById(R.id.fl_tv_spool_cost_one_kg_value);
         fl_tv_spool_cost_one_meter_label = findViewById(R.id.fl_tv_spool_cost_one_meter_label);
-        fl_et_spool_cost_one_meter_value = findViewById(R.id.fl_et_spool_cost_one_meter_value);
+        fl_tv_spool_cost_one_meter_value = findViewById(R.id.fl_tv_spool_cost_one_meter_value);
 
     }
 
@@ -130,21 +137,8 @@ public class FilamentActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        setValues();
         filament.save();
         super.onBackPressed();
-
-    }
-
-    private void setValues() {
-
-        filament.setName(fl_et_name_value.getText().toString());
-        filament.setColor(fl_et_color_value.getText().toString());
-        filament.setDiameter(Float.parseFloat(fl_et_diameter_value.getText().toString()));
-        filament.setSpoolWeight(Float.parseFloat(fl_et_spool_weight_value.getText().toString()));
-        filament.setSpoolCost(Float.parseFloat(fl_et_spool_cost_value.getText().toString()));
-
-        loadDataToViews();
 
     }
 
@@ -152,13 +146,9 @@ public class FilamentActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
-        builder.setTitle("Select plastic");
+        builder.setTitle(R.string.select_plastic);
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item);
-        for (Plastic plastic: Plastic.loadList()) {
-            arrayAdapter.add(plastic.getName());
-        }
-
+        final ListPlasticAdapter arrayAdapter = new ListPlasticAdapter(this);
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -168,13 +158,162 @@ public class FilamentActivity extends AppCompatActivity {
         builder.setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String strName = arrayAdapter.getItem(which);
-                filament.setPlastic(Plastic.getItemByName(strName));
+                Plastic item = arrayAdapter.getItem(which);
+                filament.setPlastic(item);
                 loadDataToViews();
             }
         });
         builder.show();
 
     }
+
+    public void setColor(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(FilamentActivity.this);
+        builder.setTitle(R.string.color);
+        String defaultValue = filament.getColor();
+        final EditText input = new EditText(FilamentActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                filament.setColor(newValue);
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    public void setName(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(FilamentActivity.this);
+        builder.setTitle(R.string.name);
+        String defaultValue = filament.getName();
+        final EditText input = new EditText(FilamentActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                filament.setName(newValue);
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    public void setSpoolCost(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(FilamentActivity.this);
+        builder.setTitle(R.string.spool_cost);
+        String defaultValue = String.valueOf(filament.getSpoolCost());
+        final EditText input = new EditText(FilamentActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                filament.setSpoolCost(Float.parseFloat(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    public void setSpoolWeight(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(FilamentActivity.this);
+        builder.setTitle(R.string.spool_weight);
+        String defaultValue = String.valueOf(filament.getSpoolWeight());
+        final EditText input = new EditText(FilamentActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                filament.setSpoolWeight(Float.parseFloat(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
+    public void setDiameter(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(FilamentActivity.this);
+        builder.setTitle(R.string.diameter);
+        String defaultValue = String.valueOf(filament.getDiameter());
+        final EditText input = new EditText(FilamentActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                filament.setDiameter(Float.parseFloat(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
+
 
 }

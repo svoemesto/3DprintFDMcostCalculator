@@ -25,11 +25,13 @@
             <TextView
                 android:id="@+id/lpp_tv_name_value"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@id/lpp_bt_delete"
+                android:layout_height="42dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
                 android:layout_marginStart="10dp"
-                android:text="Part name"/>
+                />
 
         </RelativeLayout>
 

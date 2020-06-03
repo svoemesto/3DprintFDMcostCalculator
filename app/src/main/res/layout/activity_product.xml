@@ -12,7 +12,7 @@
         android:id="@+id/pa_bt_add_new_part"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add new part"
+        android:text="@string/add_new_part"
         android:layout_alignParentBottom="true"
         android:onClick="addNewPart"
         />
@@ -37,26 +37,49 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageButton
+                    android:id="@+id/pa_ib_get_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_keyboard_24"
+                    android:onClick="setName"
+                    />
 
                 <TextView
                     android:id="@+id/pa_tv_name_label"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="Name:"/>
+                    android:text="@string/name_colon"/>
 
-                <EditText
-                    android:id="@+id/pa_et_name_value"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_name_label"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="right"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_name_label"
+                    android:layout_alignBottom="@+id/pa_tv_name_label"
+                    android:layout_toStartOf="@+id/pa_tv_name_value"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:id="@+id/pa_tv_name_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:gravity="end|center_vertical"
+                    android:layout_toStartOf="@id/pa_ib_get_name"
                     android:layout_marginStart="10dp"
                     />
 
             </RelativeLayout>
+
 
 
             <RelativeLayout
@@ -68,20 +91,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Time:"/>
+                    android:text="@string/time_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_time_label"
+                    android:layout_alignBottom="@+id/pa_tv_time_label"
+                    android:layout_toStartOf="@+id/pa_tv_time_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_time_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_time_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00:00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:layout_marginStart="10dp" />
+
 
             </RelativeLayout>
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -92,17 +123,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Weight:"/>
+                    android:text="@string/weight_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_weight_label"
+                    android:layout_alignBottom="@+id/pa_tv_weight_label"
+                    android:layout_toStartOf="@+id/pa_tv_weight_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_weight_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_weight_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 
@@ -115,17 +154,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Filament cost:"/>
+                    android:text="@string/filament_cost_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_filament_cost_label"
+                    android:layout_alignBottom="@+id/pa_tv_filament_cost_label"
+                    android:layout_toStartOf="@+id/pa_tv_filament_cost_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_filament_cost_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_filament_cost_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 
@@ -138,17 +185,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Electricity cost:"/>
+                    android:text="@string/electricity_cost_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_electric_cost_label"
+                    android:layout_alignBottom="@+id/pa_tv_electric_cost_label"
+                    android:layout_toStartOf="@+id/pa_tv_electric_cost_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_electric_cost_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_electric_cost_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 
@@ -161,17 +216,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Depreciation cost:"/>
+                    android:text="@string/depreciation_cost_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_depreciation_cost_label"
+                    android:layout_alignBottom="@+id/pa_tv_depreciation_cost_label"
+                    android:layout_toStartOf="@+id/pa_tv_depreciation_cost_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_depreciation_cost_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_depreciation_cost_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 
@@ -185,17 +248,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Net cost:"/>
+                    android:text="@string/net_cost_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_net_cost_label"
+                    android:layout_alignBottom="@+id/pa_tv_net_cost_label"
+                    android:layout_toStartOf="@+id/pa_tv_net_cost_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_net_cost_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_net_cost_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_bold"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 
@@ -208,17 +279,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Total cost:"/>
+                    android:text="@string/total_cost_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_total_cost_label"
+                    android:layout_alignBottom="@+id/pa_tv_total_cost_label"
+                    android:layout_toStartOf="@+id/pa_tv_total_cost_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_total_cost_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_total_cost_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_extra_bold"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 
@@ -231,17 +310,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Profit:"/>
+                    android:text="@string/profit_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/pa_tv_profit_cost_label"
+                    android:layout_alignBottom="@+id/pa_tv_profit_cost_label"
+                    android:layout_toStartOf="@+id/pa_tv_profit_cost_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/pa_tv_profit_cost_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/pa_tv_profit_cost_label"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_bold_italic"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 

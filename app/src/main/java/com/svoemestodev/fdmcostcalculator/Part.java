@@ -95,17 +95,6 @@ public class Part implements Serializable {
         return getTotalCost() - getNetCost();
     }
 
-    public static Part getItemByName(String name) {
-        Part result = null;
-        for (Part part: loadList()) {
-            if (part.getName().equals(name)) {
-                result = part;
-                break;
-            }
-        }
-        return result;
-    }
-
     public void save() {
         List<Part> list = loadList();
         List<Part> listNew = new ArrayList<>();
@@ -144,7 +133,6 @@ public class Part implements Serializable {
             ois.close();
         } catch (ClassNotFoundException | IOException e) {
             Log.e("Part", "loadList. Ошибка десериализации. Возвращаем пустой список.");
-//            list = getDefaultList();
         }
         return list;
     }

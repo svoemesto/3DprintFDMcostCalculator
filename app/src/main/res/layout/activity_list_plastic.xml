@@ -12,7 +12,7 @@
         android:id="@+id/lpl_bt_add_new_plastic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add new plastic"
+        android:text="@string/add_new_plastic"
         android:layout_alignParentBottom="true"
         android:onClick="addNewPlastic"
         />

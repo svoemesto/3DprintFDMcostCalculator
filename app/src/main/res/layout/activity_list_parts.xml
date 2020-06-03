@@ -12,7 +12,7 @@
         android:id="@+id/lpa_bt_add_new_part"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add new part"
+        android:text="@string/add_new_part"
         android:layout_alignParentBottom="true"
         android:onClick="addNewPart"
         />

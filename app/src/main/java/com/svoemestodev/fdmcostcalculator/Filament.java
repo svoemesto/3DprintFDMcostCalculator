@@ -76,22 +76,11 @@ public class Filament implements Serializable {
 
         List<Filament> list = new ArrayList<>();
 
-        Filament filament = new Filament("PLA White d1.75mm w0.750kg", "White", new Plastic("PLA", 1.24f),1.75f,0.750f, 1790.00f);
+        Filament filament = new Filament("PLA White", "White", new Plastic("PLA", 1.24f),1.75f,0.750f, 1790.00f);
 
         list.add(filament);
 
         return list;
-    }
-
-    public static Filament getItemByName(String name) {
-        Filament result = null;
-        for (Filament filament: loadList()) {
-            if (filament.getName().equals(name)) {
-                result = filament;
-                break;
-            }
-        }
-        return result;
     }
 
     public void save() {

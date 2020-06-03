@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,9 +24,9 @@ public class PlasticActivity extends AppCompatActivity {
 
     AdView pl_ad_banner;
     TextView pl_tv_name_label;
-    EditText pl_et_name_value;
+    TextView pl_tv_name_value;
     TextView pl_tv_density_label;
-    EditText pl_et_density_value;
+    TextView pl_tv_density_value;
 
     public static Plastic plastic;
 
@@ -57,8 +58,8 @@ public class PlasticActivity extends AppCompatActivity {
 
         String plasticName = plastic.getName() == null ? "N/A" : plastic.getName();
 
-        pl_et_name_value.setText(plasticName);
-        pl_et_density_value.setText(String.valueOf(plastic.getDensity()));
+        pl_tv_name_value.setText(plasticName);
+        pl_tv_density_value.setText(Utils.convertFloatToStringFormatter2digit(plastic.getDensity()));
 
     }
 
@@ -66,9 +67,9 @@ public class PlasticActivity extends AppCompatActivity {
 
         pl_ad_banner = findViewById(R.id.pl_ad_banner);
         pl_tv_name_label = findViewById(R.id.pl_tv_name_label);
-        pl_et_name_value = findViewById(R.id.pl_et_name_value);
+        pl_tv_name_value = findViewById(R.id.pl_tv_name_value);
         pl_tv_density_label = findViewById(R.id.pl_tv_density_label);
-        pl_et_density_value = findViewById(R.id.pl_et_density_value);
+        pl_tv_density_value = findViewById(R.id.pl_tv_density_value);
 
     }
 
@@ -85,20 +86,67 @@ public class PlasticActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        setValues();
         plastic.save();
         super.onBackPressed();
 
     }
 
-    private void setValues() {
+    public void setName(View view) {
 
-        plastic.setName(pl_et_name_value.getText().toString());
-        plastic.setDensity(Float.parseFloat(pl_et_density_value.getText().toString()));
+        final AlertDialog.Builder builder = new AlertDialog.Builder(PlasticActivity.this);
+        builder.setTitle(R.string.name);
+        String defaultValue = plastic.getName();
+        final EditText input = new EditText(PlasticActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(defaultValue);
+        builder.setView(input);
 
-        loadDataToViews();
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                plastic.setName(newValue);
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
 
     }
 
+    public void setDensity(View view) {
 
+        final AlertDialog.Builder builder = new AlertDialog.Builder(PlasticActivity.this);
+        builder.setTitle(R.string.density);
+        String defaultValue = String.valueOf(plastic.getDensity());
+        final EditText input = new EditText(PlasticActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                if (newValue.equals("")) newValue = "0";
+                plastic.setDensity(Float.parseFloat(newValue));
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+    }
 }

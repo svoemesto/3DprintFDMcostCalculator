@@ -19,34 +19,34 @@
         tools:targetApi="q">
         <activity
             android:name=".ProductActivity"
-            android:label="Product" />
+            android:label="@string/product" />
         <activity
             android:name=".SettingsActivity"
-            android:label="Setting" />
+            android:label="@string/setting" />
         <activity
             android:name=".FilamentActivity"
-            android:label="Filament" />
+            android:label="@string/filament" />
         <activity
             android:name=".PlasticActivity"
-            android:label="Plastic" />
+            android:label="@string/plastic" />
         <activity
             android:name=".ListProductsActivity"
-            android:label="Products" />
+            android:label="@string/products" />
         <activity
             android:name=".ListSettingsActivity"
-            android:label="Settings" />
+            android:label="@string/settings" />
         <activity
             android:name=".ListFilamentActivity"
-            android:label="Filaments" />
+            android:label="@string/filaments" />
         <activity
             android:name=".ListPlasticActivity"
-            android:label="Plastics" />
+            android:label="@string/plastics" />
         <activity
             android:name=".PartActivity"
-            android:label="Part" />
+            android:label="@string/part" />
         <activity
             android:name=".ListPartsActivity"
-            android:label="Parts" />
+            android:label="@string/parts" />
         <activity
             android:name=".SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">

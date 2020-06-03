@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.svoemestodev.fdmcostcalculator.adapters.ListFilamentAdapter;
+import com.svoemestodev.fdmcostcalculator.adapters.ListPartAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,7 @@ public class ProductActivity extends AppCompatActivity {
     Button pa_bt_add_new_part;
     AdView pa_ad_banner;
     TextView pa_tv_name_label;
-    EditText pa_et_name_value;
+    TextView pa_tv_name_value;
     TextView pa_tv_weight_label;
     TextView pa_tv_time_label;
     TextView pa_tv_time_value;
@@ -68,7 +71,6 @@ public class ProductActivity extends AppCompatActivity {
 
         initializeViews();
         loadDataToViews();
-        displayRecords();
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -86,15 +88,16 @@ public class ProductActivity extends AppCompatActivity {
 
         String productName = product.getName() == null ? "N/A" : product.getName();
 
-        pa_et_name_value.setText(productName);
+        pa_tv_name_value.setText(productName);
         pa_tv_time_value.setText(String.valueOf(product.getTimeString()));
-        pa_tv_weight_value.setText(String.valueOf(product.getWeight()));
-        pa_tv_filament_cost_value.setText(String.valueOf(product.getFilamentCost()));
-        pa_tv_electric_cost_value.setText(String.valueOf(product.getElectricityCost()));
-        pa_tv_depreciation_cost_value.setText(String.valueOf(product.getDepreciationCost()));
-        pa_tv_net_cost_value.setText(String.valueOf(product.getNetCost()));
-        pa_tv_total_cost_value.setText(String.valueOf(product.getTotalCost()));
-        pa_tv_profit_cost_value.setText(String.valueOf(product.getProfitCost()));
+        pa_tv_weight_value.setText(Utils.convertFloatToStringFormatter2digit(product.getWeight()));
+        pa_tv_filament_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getFilamentCost()));
+        pa_tv_electric_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getElectricityCost()));
+        pa_tv_depreciation_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getDepreciationCost()));
+        pa_tv_net_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getNetCost()));
+        pa_tv_total_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getTotalCost()));
+        pa_tv_profit_cost_value.setText(Utils.convertFloatToStringFormatter2digit(product.getProfitCost()));
+        pa_lv_parts.setAdapter(new ListProductsPartsAdapter(this));
 
     }
 
@@ -103,7 +106,7 @@ public class ProductActivity extends AppCompatActivity {
         pa_ad_banner = findViewById(R.id.pa_ad_banner);
         pa_bt_add_new_part = findViewById(R.id.pa_bt_add_new_part);
         pa_tv_name_label = findViewById(R.id.pa_tv_name_label);
-        pa_et_name_value = findViewById(R.id.pa_et_name_value);
+        pa_tv_name_value = findViewById(R.id.pa_tv_name_value);
         pa_tv_time_label = findViewById(R.id.pa_tv_time_label);
         pa_tv_time_value = findViewById(R.id.pa_tv_time_value);
         pa_tv_weight_label = findViewById(R.id.pa_tv_weight_label);
@@ -137,35 +140,18 @@ public class ProductActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        setValues();
         product.save();
         super.onBackPressed();
 
-    }
-
-    private void setValues() {
-
-        product.setName(pa_et_name_value.getText().toString());
-
-        loadDataToViews();
-
-    }
-
-    private void displayRecords() {
-        pa_lv_parts.setAdapter(new ListProductsPartsAdapter(this));
     }
 
     public void addNewPart(View view) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
-        builder.setTitle("Select part");
+        builder.setTitle(R.string.select_part);
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item);
-        for (Part part: Part.loadList()) {
-            arrayAdapter.add(part.getName());
-        }
-
+        final ListPartAdapter arrayAdapter = new ListPartAdapter(this);
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -175,13 +161,42 @@ public class ProductActivity extends AppCompatActivity {
         builder.setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String strName = arrayAdapter.getItem(which);
+                Part item = arrayAdapter.getItem(which);
                 List<Part> list = product.getParts();
-                list.add(Part.getItemByName(strName));
+                list.add(item);
                 product.setParts(list);
                 loadDataToViews();
             }
         });
+        builder.show();
+
+    }
+
+    public void setName(View view) {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(ProductActivity.this);
+        builder.setTitle(R.string.name);
+        String defaultValue = product.getName();
+        final EditText input = new EditText(ProductActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(defaultValue);
+        builder.setView(input);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newValue = input.getText().toString();
+                product.setName(newValue);
+                loadDataToViews();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
         builder.show();
 
     }
@@ -217,7 +232,7 @@ public class ProductActivity extends AppCompatActivity {
                         }
                     }
                     product.setParts(list);
-                    displayRecords();
+                    loadDataToViews();;
                 }
             });
 

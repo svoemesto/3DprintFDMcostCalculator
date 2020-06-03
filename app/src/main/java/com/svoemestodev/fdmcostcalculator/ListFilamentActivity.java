@@ -26,6 +26,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ListFilamentActivity extends AppCompatActivity {
 
@@ -140,13 +141,13 @@ public class ListFilamentActivity extends AppCompatActivity {
             lfl_tv_name_value.setText(filamentName);
             lfl_tv_plastic_value.setText(plasticName);
             lfl_tv_color_value.setText(colorName);
-            lfl_tv_diameter_value.setText(String.valueOf(filament.getDiameter()));
-            lfl_tv_spool_weight_value.setText(String.valueOf(filament.getSpoolWeight()));
-            lfl_tv_spool_cost_value.setText(String.valueOf(filament.getSpoolCost()));
-            lfl_et_spool_length_value.setText(String.valueOf(filament.getSpoolLength()));
-            lfl_et_spool_weight_one_meter_value.setText(String.valueOf(filament.getWeightOneMeter()));
-            lfl_et_spool_cost_one_kg_value.setText(String.valueOf(filament.getCostOneKilogram()));
-            lfl_et_spool_cost_one_meter_value.setText(String.valueOf(filament.getCostOneMeter()));
+            lfl_tv_diameter_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getDiameter()));
+            lfl_tv_spool_weight_value.setText(Utils.convertFloatToStringFormatter3digit(filament.getSpoolWeight()));
+            lfl_tv_spool_cost_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getSpoolCost()));
+            lfl_et_spool_length_value.setText(Utils.convertFloatToStringFormatter3digit(filament.getSpoolLength()));
+            lfl_et_spool_weight_one_meter_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getWeightOneMeter()));
+            lfl_et_spool_cost_one_kg_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getCostOneKilogram()));
+            lfl_et_spool_cost_one_meter_value.setText(Utils.convertFloatToStringFormatter2digit(filament.getCostOneMeter()));
 
             lfl_bt_delete.setOnClickListener(new View.OnClickListener() {
                 @Override

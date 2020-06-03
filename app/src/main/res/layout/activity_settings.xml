@@ -33,22 +33,44 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageButton
+                    android:id="@+id/st_ib_get_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_keyboard_24"
+                    android:onClick="setName"
+                    />
 
                 <TextView
                     android:id="@+id/st_tv_name_label"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="Name:"/>
+                    android:text="@string/name_colon"/>
 
-                <EditText
-                    android:id="@+id/st_et_name_value"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_name_label"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="right"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_name_label"
+                    android:layout_alignBottom="@+id/st_tv_name_label"
+                    android:layout_toStartOf="@+id/st_tv_name_value"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:id="@+id/st_tv_name_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:gravity="end|center_vertical"
+                    android:layout_toStartOf="@id/st_ib_get_name"
                     android:layout_marginStart="10dp"
                     />
 
@@ -56,22 +78,45 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageButton
+                    android:id="@+id/st_ib_get_electricity_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_keyboard_24"
+                    android:onClick="setElectricityCost"
+                    />
 
                 <TextView
                     android:id="@+id/st_tv_electricity_cost_label"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="Electricity cost:"/>
+                    android:text="@string/electricity_cost_colon"/>
 
-                <EditText
-                    android:id="@+id/st_et_electricity_cost_value"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_electricity_cost_label"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="right"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_electricity_cost_label"
+                    android:layout_alignBottom="@+id/st_tv_electricity_cost_label"
+                    android:layout_toStartOf="@+id/st_tv_electricity_cost_value"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:id="@+id/st_tv_electricity_cost_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:textSize="18sp"
+                    android:gravity="end|center_vertical"
+                    android:layout_toStartOf="@id/st_ib_get_electricity_cost"
                     android:layout_marginStart="10dp"
                     />
 
@@ -79,45 +124,92 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageButton
+                    android:id="@+id/st_ib_get_printer_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_keyboard_24"
+                    android:onClick="setPrinterCost"
+                    />
 
                 <TextView
                     android:id="@+id/st_tv_printer_cost_label"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="Printer cost:"/>
+                    android:text="@string/printer_cost_colon"/>
 
-                <EditText
-                    android:id="@+id/st_et_printer_cost_value"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_printer_cost_label"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="right"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_printer_cost_label"
+                    android:layout_alignBottom="@+id/st_tv_printer_cost_label"
+                    android:layout_toStartOf="@+id/st_tv_printer_cost_value"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:id="@+id/st_tv_printer_cost_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:textSize="18sp"
+                    android:gravity="end|center_vertical"
+                    android:layout_toStartOf="@id/st_ib_get_printer_cost"
                     android:layout_marginStart="10dp"
                     />
 
             </RelativeLayout>
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageButton
+                    android:id="@+id/st_ib_get_printer_power"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_keyboard_24"
+                    android:onClick="setPrinterPower"
+                    />
 
                 <TextView
                     android:id="@+id/st_tv_printer_power_label"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="Printer power:"/>
+                    android:text="@string/printer_power_colon"/>
 
-                <EditText
-                    android:id="@+id/st_et_printer_power_value"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_printer_power_label"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="right"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_printer_power_label"
+                    android:layout_alignBottom="@+id/st_tv_printer_power_label"
+                    android:layout_toStartOf="@+id/st_tv_printer_power_value"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:id="@+id/st_tv_printer_power_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:textSize="18sp"
+                    android:gravity="end|center_vertical"
+                    android:layout_toStartOf="@id/st_ib_get_printer_power"
                     android:layout_marginStart="10dp"
                     />
 
@@ -125,45 +217,93 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageButton
+                    android:id="@+id/st_ib_get_depreciation_years"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_keyboard_24"
+                    android:onClick="setDepreciationYears"
+                    />
 
                 <TextView
                     android:id="@+id/st_tv_depreciation_years_label"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="Depreciation years:"/>
+                    android:text="@string/depreciation_years_colon"/>
 
-                <EditText
-                    android:id="@+id/st_et_depreciation_years_value"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_depreciation_years_label"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp" />
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_depreciation_years_label"
+                    android:layout_alignBottom="@+id/st_tv_depreciation_years_label"
+                    android:layout_toStartOf="@+id/st_tv_depreciation_years_value"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:id="@+id/st_tv_depreciation_years_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:textSize="18sp"
+                    android:gravity="end|center_vertical"
+                    android:layout_toStartOf="@id/st_ib_get_depreciation_years"
+                    android:layout_marginStart="10dp"
+                    />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <ImageButton
+                    android:id="@+id/st_ib_get_final_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_keyboard_24"
+                    android:onClick="setFinalCost"
+                    />
 
                 <TextView
                     android:id="@+id/st_tv_final_cost_label"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="42dp"
+                    android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="Final cost (to 1 gram):"/>
+                    android:text="@string/final_cost_to_1_gram_colon"/>
 
-                <EditText
-                    android:id="@+id/st_et_final_cost_value"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_final_cost_label"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp" />
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_final_cost_label"
+                    android:layout_alignBottom="@+id/st_tv_final_cost_label"
+                    android:layout_toStartOf="@+id/st_tv_final_cost_value"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:id="@+id/st_tv_final_cost_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
+                    android:textSize="18sp"
+                    android:gravity="end|center_vertical"
+                    android:layout_toStartOf="@id/st_ib_get_final_cost"
+                    android:layout_marginStart="10dp"
+                    />
 
             </RelativeLayout>
 
@@ -176,17 +316,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Cost 1 hour work (electricity):"/>
+                    android:text="@string/cost_1_hour_work_electricity_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_cost_hour_electricity_label"
+                    android:layout_alignBottom="@+id/st_tv_cost_hour_electricity_label"
+                    android:layout_toStartOf="@+id/st_tv_cost_hour_electricity_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
                     android:id="@+id/st_tv_cost_hour_electricity_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_cost_hour_electricity_label"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
 
@@ -195,23 +343,32 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/st_tv_cost_hour_deprecation_label"
+                    android:id="@+id/st_tv_cost_hour_depreciation_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:text="Cost 1 hour work (deprecation):"/>
+                    android:text="@string/cost_1_hour_work_depreciation_colon"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toEndOf="@+id/st_tv_cost_hour_depreciation_label"
+                    android:layout_alignBottom="@+id/st_tv_cost_hour_depreciation_label"
+                    android:layout_toStartOf="@+id/st_tv_cost_hour_depreciation_value"
+                    android:background="#c0c0c0"/>
 
                 <TextView
-                    android:id="@+id/st_tv_cost_hour_deprecation_value"
+                    android:id="@+id/st_tv_cost_hour_depreciation_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/st_tv_cost_hour_deprecation_label"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/jet_brains_mono_regular"
                     android:layout_alignParentEnd="true"
-                    android:gravity="right"
-                    android:layout_marginStart="10dp"
-                    android:text="00.00"/>
+                    android:gravity="end"
+                    android:layout_marginStart="10dp" />
 
             </RelativeLayout>
+
 
         </LinearLayout>
 
