@@ -14,6 +14,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
 
     AdView ma_ad_banner;
@@ -29,6 +31,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Plastic.pathToFile = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + getString(R.string.file_list_plastic);
+        File plastics = new File(Plastic.pathToFile);
+        if (!plastics.exists()) {
+            Plastic.saveList(Plastic.getDefaultList());
+        }
+
+        Filament.pathToFile = getApplicationContext().getFilesDir().getAbsolutePath() + "/"+ getString(R.string.file_list_filament);
+        File filament = new File(Filament.pathToFile);
+        if (!filament.exists()) {
+            Filament.saveList(Filament.getDefaultList());
+        }
+
+        ProgramSettings.pathToFile = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + getString(R.string.file_list_settings);
+        File programSettings = new File(ProgramSettings.pathToFile);
+        if (!programSettings.exists()) {
+            ProgramSettings.saveList(ProgramSettings.getDefaultList());
+        }
+
+        Part.pathToFile = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + getString(R.string.file_list_parts);
+        Product.pathToFile = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + getString(R.string.file_list_products);
 
         initializeViews();
 

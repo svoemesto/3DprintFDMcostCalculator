@@ -26,7 +26,7 @@
     <string name="filament_length_mm">Длина нити (мм)</string>
     <string name="weight">Вес (г)</string>
     <string name="filament_cost">Стоимость пластика</string>
-    <string name="electricity_cost">Стоимость электроэнергии за 1 кВт</string>
+    <string name="electricity_cost">Стоимость электроэнергии</string>
     <string name="depreciation_cost">Стоимость амортизации</string>
     <string name="net_cost">Себестоимость</string>
     <string name="total_cost">ИТОГО</string>
@@ -60,7 +60,7 @@
     <string name="filament_length_mm_colon">Длина нити (мм):</string>
     <string name="weight_colon">Вес (г):</string>
     <string name="filament_cost_colon">Стоимость пластика:</string>
-    <string name="electricity_cost_colon">Стоимость электроэнергии за 1 кВт:</string>
+    <string name="electricity_cost_colon">Стоимость электроэнергии:</string>
     <string name="depreciation_cost_colon">Стоимость амортизации:</string>
     <string name="net_cost_colon">Себестоимость:</string>
     <string name="total_cost_colon">ИТОГО:</string>
@@ -92,4 +92,6 @@
     <string name="select_settings">Выберите настройку</string>
     <string name="select_part">Выберите детать</string>
     <string name="select_plastic">Выберите пластик</string>
+    <string name="electricity_cost_1_kwt_colon">Стоимость электроэнергии за 1 кВт:</string>
+    <string name="electricity_cost_1_kwt">Стоимость электроэнергии за 1 кВт</string>
 </resources>

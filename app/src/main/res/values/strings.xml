@@ -63,8 +63,10 @@
     <string name="weight_colon">Weight (g):</string>
     <string name="filament_cost">Filament cost</string>
     <string name="filament_cost_colon">Filament cost:</string>
-    <string name="electricity_cost">Electricity cost to 1 kWatt</string>
-    <string name="electricity_cost_colon">Electricity cost to 1 kWatt:</string>
+    <string name="electricity_cost">Electricity cost</string>
+    <string name="electricity_cost_colon">Electricity cost:</string>
+    <string name="electricity_cost_1_kwt">Electricity cost to 1 kWatt</string>
+    <string name="electricity_cost_1_kwt_colon">Electricity cost to 1 kWatt:</string>
     <string name="depreciation_cost">Depreciation cost</string>
     <string name="depreciation_cost_colon">Depreciation cost:</string>
     <string name="net_cost">Net cost</string>

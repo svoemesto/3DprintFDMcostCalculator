@@ -98,7 +98,7 @@
                     android:layout_height="42dp"
                     android:gravity="center"
                     android:layout_alignParentStart="true"
-                    android:text="@string/electricity_cost_colon"/>
+                    android:text="@string/electricity_cost_1_kwt_colon"/>
 
                 <View
                     android:layout_width="match_parent"
